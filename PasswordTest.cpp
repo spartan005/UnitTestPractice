@@ -38,6 +38,12 @@ TEST(PasswordTest, empty_password)
 	int actual = my_password.count_leading_characters("");
 	ASSERT_EQ(0, actual);
 }
+TEST(PasswordTest, number_password)
+{
+	Password my_password;
+	int actual = my_password.count_leading_characters("12345678900");
+	ASSERT_EQ(1, actual);
+}
 TEST(PasswordTest, mixed_password)
 {
 	Password my_password;
@@ -66,5 +72,17 @@ TEST(PasswordTest, no_mixed_space_password)
 {
 	Password my_password;
 	int actual = my_password.has_mixed_case("AA AA");
+	ASSERT_EQ(false, actual);
+}
+TEST(PasswordTest, mixed_number_password)
+{
+	Password my_password;
+	int actual = my_password.has_mixed_case("11!!22@@");
+	ASSERT_EQ(false, actual);
+}
+TEST(PasswordTest, mixed_symbol_password)
+{
+	Password my_password;
+	int actual = my_password.has_mixed_case("_-+=`~:;,<.>/?");
 	ASSERT_EQ(false, actual);
 }
