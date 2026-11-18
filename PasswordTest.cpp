@@ -23,7 +23,7 @@ TEST(PasswordTest, single_letter_password)
 TEST(PasswordTest, strange_characters_password)
 {
 	Password my_password;
-	int actual = my_password.count_leading_characters("ZZ!!~~");
+	int actual = my_password.count_leading_characters("!!~~@@##$$^^&&**(())__++==--``'';;::,,..//>><<??  ");
 	ASSERT_EQ(2, actual);
 }
 TEST(PasswordTest, whitespace_password)
